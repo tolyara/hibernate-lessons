@@ -3,12 +3,11 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
-	<class name="models.User" table="usr">
+<hibernate-mapping package="main.java.models">
+	<class name="FirstTable" table="first_table">
 		<id name="id" column="id">
 			<generator class="native"/>
 		</id>
-		<property name="name" column="name" type="string"/>
-		<property name="age" column="age" type="string"/>
+		<property name="column" column="col" type="string"/>				
 	</class>
 </hibernate-mapping>

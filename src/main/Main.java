@@ -1,12 +1,10 @@
 package main;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import main.java.models.User;
+import main.java.models.FirstTable;
 import main.java.util.HibernateUtil;
 
 /**
@@ -15,7 +13,7 @@ import main.java.util.HibernateUtil;
  * 2 - mapping
  * 3 - transactions
  * 4 - ORM
- * 6 - queries (SQL, HQL, criteria)
+ * 5 - queries (SQL, HQL, criteria)
  *
  */
 public class Main {
@@ -26,19 +24,24 @@ public class Main {
 
 	private static void testHibernateConnection() {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		System.out.println(sessionFactory);
 		
 		Session session = sessionFactory.openSession();
+		FirstTable firstTable = new FirstTable("column3");
 		Transaction transaction = session.beginTransaction();
-		List<User> users;
-		try {
-			users = session.createQuery("from usr").list();
-		} finally {
-			transaction.commit();
-			session.close();
-		}
+		session.save(firstTable);
+		transaction.commit();
+		session.close();
 		
-		System.out.println(users);
+//		Transaction transaction = session.beginTransaction();
+//		List<User> users;
+//		try {
+//			users = session.createQuery("from worker").list();
+//		} finally {
+//			transaction.commit();
+//			session.close();
+//		}
+//		
+//		System.out.println(users);
 	}
 
 	private static void getUsers() {

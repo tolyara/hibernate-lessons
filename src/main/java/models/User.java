@@ -7,9 +7,13 @@ public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	private long id;	
+	private Long id;	
+	
 	private String name;	
-	private int age;
+	
+	private int age;	
+	
+	private Role role;
 	
 	public User() {
 		

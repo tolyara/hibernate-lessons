@@ -1,5 +1,7 @@
 package main.java.util;
 
+import java.util.Properties;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -12,14 +14,19 @@ public class HibernateUtil {
 
 	}
 
-	public static void createSessionFactory() {
+	private static void createSessionFactory() {
 		Configuration configuration = new Configuration().configure();
-		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
-				.applySettings(configuration.getProperties());
+//		configuration.addResource("first_table.hbm.xml");
+		Properties properties = configuration.getProperties();
+
+		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(properties);
 		sessionFactory = configuration.buildSessionFactory(builder.build());
 	}
 
 	public static SessionFactory getSessionFactory() {
+		if (sessionFactory == null) {
+			createSessionFactory();
+		}
 		return sessionFactory;
 	}
 
