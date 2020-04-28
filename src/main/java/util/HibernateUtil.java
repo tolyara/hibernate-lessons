@@ -15,10 +15,13 @@ public class HibernateUtil {
 	}
 
 	private static void createSessionFactory() {
-		Configuration configuration = new Configuration().configure();
-//		configuration.addResource("first_table.hbm.xml");
+		Configuration configuration = new Configuration().configure();		
+		configuration.addResource("first_table.hbm.xml");
+		configuration.addResource("user.hbm.xml");
+		configuration.addResource("role.hbm.xml");
+		configuration.addResource("status.hbm.xml");
+		
 		Properties properties = configuration.getProperties();
-
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(properties);
 		sessionFactory = configuration.buildSessionFactory(builder.build());
 	}

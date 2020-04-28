@@ -8,6 +8,7 @@ public class Role {
 	
 	private String title;
 	
+	/* one to many */
 	private Set<User> users;
 	
 	public Role() {

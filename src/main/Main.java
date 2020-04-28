@@ -1,10 +1,7 @@
 package main;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
-import main.java.models.FirstTable;
 import main.java.util.HibernateUtil;
 
 /**
@@ -25,22 +22,21 @@ public class Main {
 	private static void testHibernateConnection() {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		
-		Session session = sessionFactory.openSession();
-		FirstTable firstTable = new FirstTable("column3");
-		Transaction transaction = session.beginTransaction();
-		session.save(firstTable);
-		transaction.commit();
-		session.close();
-		
+//		Session session = sessionFactory.openSession();
+//		FirstTable firstTable = new FirstTable("column4");
 //		Transaction transaction = session.beginTransaction();
+//		session.save(firstTable);
+//		transaction.commit();
+//		session.close();
+		
+//		Transaction transaction2 = session.beginTransaction();
 //		List<User> users;
 //		try {
 //			users = session.createQuery("from worker").list();
 //		} finally {
-//			transaction.commit();
+//			transaction2.commit();
 //			session.close();
-//		}
-//		
+//		}		
 //		System.out.println(users);
 	}
 

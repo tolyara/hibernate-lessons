@@ -7,14 +7,26 @@ public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	private Long id;	
+	private long id;	
 	
 	private String name;	
 	
 	private int age;	
 	
+	/* many to one */
 	private Role role;
 	
+	/* one to one */
+	private Status status;
+	
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 	public User() {
 		
 	}
@@ -45,6 +57,14 @@ public class User implements Serializable {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 }
