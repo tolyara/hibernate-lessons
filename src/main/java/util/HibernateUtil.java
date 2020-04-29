@@ -20,8 +20,7 @@ public class HibernateUtil {
 		
 		Configuration configuration = new Configuration().configure();		
 		
-//		configuration.addClass(User.class);
-		
+//		configuration.addClass(User.class);		
 //		configuration.addResource("first_table.hbm.xml");
 //		configuration.addResource("user.hbm.xml");
 //		configuration.addResource("role.hbm.xml");

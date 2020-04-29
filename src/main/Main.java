@@ -23,16 +23,11 @@ public class Main {
 
 	private static void testHibernateConnection() {
 		Optional<SessionFactory> sessionFactory = HibernateUtil.getSessionFactory();
-		
-//		Session session = sessionFactory.openSession();
-//		User user = new User("John");
-//		Transaction transaction = session.beginTransaction();
-//		session.save(user);
-//		transaction.commit();
-//		session.close();
 	}
 
 }
+
+
 
 
 
