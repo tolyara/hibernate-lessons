@@ -4,20 +4,13 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="main.java.models">
-	<class name="User" table="usr">
+	<class name="Course" table="course">
 		<id name="id" column="id">
-			<generator class="native"/>
+			<generator class="native" />
 		</id>
-		<property name="name" column="name" type="string"/>
-		<property name="age" column="age" type="int"/>
-		
-		<many-to-one name="role" class="Role">
-			<column name="role_id" not-null="true"></column>
-		</many-to-one>
-		
-		<one-to-one name="status" class="Status"/>
-		
-		<set name="courses" table="user_course">
+		<property name="name" column="name" type="string" />
+
+		<set name="users" table="user_course" lazy="true">
 			<key column="course_id"/>
 			<many-to-many column="user_id" class="User"/>
 		</set>

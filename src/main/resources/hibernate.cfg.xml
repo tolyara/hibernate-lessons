@@ -10,11 +10,16 @@
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/myorm?serverTimezone=UTC</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">/!a&lt;ujrN</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		
 		<!-- <mapping resource="first_table.hbm.xml"></mapping> -->
+		
+		<mapping class="main.java.models.User"/>
+		<mapping class="main.java.models.Role"/>
+		<mapping class="main.java.models.Status"/>
+		<mapping class="main.java.models.Course"/>
 		
 	</session-factory>
 	

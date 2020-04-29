@@ -1,35 +1,28 @@
 package main.java.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "role")
-public class Role {
-
+@Table(name = "course")
+public class Course {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
 	private Long id;
 	
-	private String title;
+	private String name;
 	
-	/* one to many */
-	@OneToMany
-	(mappedBy = "role")
-	private Set<User> users;
+	@ManyToMany(mappedBy = "courses")
+	private Set<User> users = new HashSet<User>();
 	
-	public Role() {
-		
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -38,14 +31,14 @@ public class Role {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
-
+	
 	public Set<User> getUsers() {
 		return users;
 	}
@@ -53,5 +46,5 @@ public class Role {
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
-	
+
 }

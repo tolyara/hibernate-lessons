@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Optional;
+
 import org.hibernate.SessionFactory;
 
 import main.java.util.HibernateUtil;
@@ -7,7 +9,7 @@ import main.java.util.HibernateUtil;
 /**
  * 
  * 1 - configs
- * 2 - mapping
+ * 2 - mapping (XML, annotations)
  * 3 - transactions
  * 4 - ORM
  * 5 - queries (SQL, HQL, criteria)
@@ -20,28 +22,44 @@ public class Main {
 	}
 
 	private static void testHibernateConnection() {
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Optional<SessionFactory> sessionFactory = HibernateUtil.getSessionFactory();
 		
 //		Session session = sessionFactory.openSession();
-//		FirstTable firstTable = new FirstTable("column4");
+//		User user = new User("John");
 //		Transaction transaction = session.beginTransaction();
-//		session.save(firstTable);
+//		session.save(user);
 //		transaction.commit();
 //		session.close();
-		
-//		Transaction transaction2 = session.beginTransaction();
-//		List<User> users;
-//		try {
-//			users = session.createQuery("from worker").list();
-//		} finally {
-//			transaction2.commit();
-//			session.close();
-//		}		
-//		System.out.println(users);
-	}
-
-	private static void getUsers() {
-		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Session session = sessionFactory.openSession();
+//FirstTable firstTable = new FirstTable("column4");
+//Transaction transaction = session.beginTransaction();
+//session.save(firstTable);
+//transaction.commit();
+//session.close();
+
+//Transaction transaction2 = session.beginTransaction();
+//List<User> users;
+//try {
+//	users = session.createQuery("from worker").list();
+//} finally {
+//	transaction2.commit();
+//	session.close();
+//}		
+//System.out.println(users);
