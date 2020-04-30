@@ -15,7 +15,8 @@ public class SqlQuerySender extends DAO {
 		doUpdate(session);		
 	}
 
-	private void doSelect(Session session) {
+	@Override
+	protected void doSelect(Session session) {
 //		SQLQuery query = session.createSQLQuery("select p.* from product_m p");
 //		query.addEntity("p", ProductM.class);
 //		List<ProductM> products = query.list();
@@ -33,7 +34,7 @@ public class SqlQuerySender extends DAO {
 		}
 	}
 	
-	private void doUpdate(Session session) {
+	protected void doUpdate(Session session) {
 //		SQLQuery query = session.createSQLQuery("insert into product_category_m(id, title) values (2, 'Technical products')");
 //		query.executeUpdate();
 		

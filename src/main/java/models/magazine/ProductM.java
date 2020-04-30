@@ -26,6 +26,10 @@ public class ProductM extends Model {
 		
 	}
 
+	public ProductM(Long id) {
+		super(id);
+	}
+
 	public ProductM(String title, ProductCategoryM productCategory, BigDecimal price) {
 		this.title = title;
 		this.productCategory = productCategory;

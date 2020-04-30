@@ -1,6 +1,7 @@
 package main.java.dao;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,9 +10,13 @@ import main.java.util.HibernateUtil;
 
 public abstract class DAO {
 
-	private final Logger logger = Logger.getLogger(this.getClass());
+	private static final Logger logger = LogManager.getLogger("DAO_Logger");
 
 	abstract void createQuery(Session session);
+	
+	protected abstract void doSelect(Session session);
+	
+	protected abstract void doUpdate(Session session);
 
 	public void createTransaction() {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

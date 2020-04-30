@@ -2,7 +2,7 @@ package main.java;
 
 import org.hibernate.SessionFactory;
 
-import main.java.dao.SqlQuerySender;
+import main.java.dao.CriteriaQuerySender;
 import main.java.util.HibernateUtil;
 
 /**
@@ -24,7 +24,11 @@ public class Main {
 	private static void testQueries() {
 //		new TestQuerySender().createTransaction();
 		
-		new SqlQuerySender().createTransaction();
+//		new SqlQuerySender().createTransaction();
+		
+//		new HqlQuerySender().createTransaction();
+		
+		new CriteriaQuerySender().createTransaction();
 	}
 
 }
