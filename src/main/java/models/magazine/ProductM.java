@@ -17,13 +17,19 @@ public class ProductM extends Model {
 	private String title;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "parent_product_category", referencedColumnName = "id")
+	@JoinColumn(name = "product_category_id", referencedColumnName = "id")
 	private ProductCategoryM productCategory;
 	
 	private BigDecimal price;
 
 	public ProductM() {
 		
+	}
+
+	public ProductM(String title, ProductCategoryM productCategory, BigDecimal price) {
+		this.title = title;
+		this.productCategory = productCategory;
+		this.price = price;
 	}
 
 	public String getTitle() {
@@ -34,20 +40,30 @@ public class ProductM extends Model {
 		this.title = title;
 	}
 
-	public ProductCategoryM getModelProductCategory() {
-		return productCategory;
-	}
-
-	public void setModelProductCategory(ProductCategoryM modelProductCategory) {
-		this.productCategory = modelProductCategory;
-	}
-
 	public BigDecimal getPrice() {
 		return price;
 	}
 
 	public void setPrice(BigDecimal price) {
 		this.price = price;
-	}	
+	}
+
+	public ProductCategoryM getProductCategory() {
+		return productCategory;
+	}
+
+	public void setProductCategory(ProductCategoryM productCategory) {
+		this.productCategory = productCategory;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductM [title=" + title + ", productCategory=" + productCategory + ", price=" + price + ", ID="
+				+ getId() + "]";
+	}
+
+
+
+	
 
 }

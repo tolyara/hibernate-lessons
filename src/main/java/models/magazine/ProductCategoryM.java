@@ -20,8 +20,6 @@ public class ProductCategoryM extends Model {
 	private String title;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	
-//	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "parent_product_category", referencedColumnName = "id")
 	private ProductCategoryM parentProductCategory;
 	
@@ -34,6 +32,10 @@ public class ProductCategoryM extends Model {
 
 	public ProductCategoryM(Long id) {
 		super(id);
+	}
+
+	public ProductCategoryM(String title) {
+		this.title = title;
 	}
 
 	public String getTitle() {
@@ -58,6 +60,11 @@ public class ProductCategoryM extends Model {
 
 	public void setProducts(Set<ProductM> products) {
 		this.products = products;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductCategoryM [title=" + title + "]";
 	}
 
 }

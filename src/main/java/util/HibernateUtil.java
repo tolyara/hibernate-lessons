@@ -31,12 +31,15 @@ public class HibernateUtil {
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(properties);
 		StandardServiceRegistry serviceRegistry = builder.configure().build();
 				
-		Optional<SessionFactory> sessionFactory = Optional.of(configuration.buildSessionFactory(serviceRegistry));
+		Optional<SessionFactory> sessionFactory = Optional.ofNullable(configuration.buildSessionFactory(serviceRegistry));
 		return sessionFactory;
 	}
 
-	public static Optional<SessionFactory> getSessionFactory() {		
-		return Optional.of(sessionFactory).orElse(createSessionFactory());
+	public static SessionFactory getSessionFactory() {		
+		if (sessionFactory.isPresent() == false) {
+			sessionFactory = createSessionFactory();
+		}
+		return sessionFactory.get();
 	}
 
 }
