@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 
 import main.java.util.HibernateUtil;
 
+// pattern Template Method
 public abstract class DAO {
 
 	private static final Logger logger = LogManager.getLogger("DAO_Logger");
