@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 
 import main.java.dao.CriteriaQuerySender;
 import main.java.util.HibernateUtil;
+import main.java.util.ValidationUtil;
 
 /**
  * 
@@ -14,7 +15,7 @@ import main.java.util.HibernateUtil;
 public class Main {
 
 	public static void main(String[] args) {
-		testQueries();
+		testValidation();
 	}
 
 	private static void testHibernateConnection() {
@@ -23,34 +24,19 @@ public class Main {
 
 	private static void testQueries() {
 //		new TestQuerySender().createTransaction();
-		
 //		new SqlQuerySender().createTransaction();
-		
 //		new HqlQuerySender().createTransaction();
-		
+
 		new CriteriaQuerySender().createTransaction();
+	}
+
+	private static void testValidation() {
+		try {
+			ValidationUtil.checkValidation();
+		} catch (Exception e) {
+			e.printStackTrace(System.out);
+		}
 	}
 
 }
 
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//

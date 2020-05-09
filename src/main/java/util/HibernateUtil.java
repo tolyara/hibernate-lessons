@@ -20,13 +20,6 @@ public class HibernateUtil {
 		
 		Configuration configuration = new Configuration().configure();		
 		
-//		configuration.addClass(User.class);		
-//		configuration.addResource("first_table.hbm.xml");
-//		configuration.addResource("user.hbm.xml");
-//		configuration.addResource("role.hbm.xml");
-//		configuration.addResource("status.hbm.xml");
-//		configuration.addResource("course.hbm.xml");
-		
 		Properties properties = configuration.getProperties();
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(properties);
 		StandardServiceRegistry serviceRegistry = builder.configure().build();
@@ -43,3 +36,20 @@ public class HibernateUtil {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+//configuration.addClass(User.class);		
+//configuration.addResource("first_table.hbm.xml");
+//configuration.addResource("user.hbm.xml");
+//configuration.addResource("role.hbm.xml");
+//configuration.addResource("status.hbm.xml");
+//configuration.addResource("course.hbm.xml");

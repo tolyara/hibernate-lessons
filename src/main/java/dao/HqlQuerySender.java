@@ -22,9 +22,6 @@ public class HqlQuerySender extends DAO {
 
 	@Override
 	protected void doSelect(Session session) {
-//		Query query = session.createQuery("from ProductM as p");
-//		List<ProductM> products = query.list();
-
 		Query query = session.createQuery("select p from ProductM p where p.id > ?1");
 		query.setParameter(1, 2L);
 		List<ProductM> products = query.list();
@@ -33,7 +30,6 @@ public class HqlQuerySender extends DAO {
 		for (ProductM product : products) {
 			System.out.println(product);
 		}
-
 	}
 
 	@Override
@@ -44,9 +40,31 @@ public class HqlQuerySender extends DAO {
 		ProductM product = (ProductM) query.uniqueResult(); 		
 		product.setPrice(new BigDecimal(560)); // value for update
 
-//		session.save(product);
 		session.update(product);
-//		session.delete(product);
 	}
 
 }
+
+
+
+
+
+
+
+//Query query = session.createQuery("from ProductM as p");
+//List<ProductM> products = query.list();
+
+
+
+//session.save(product);
+//session.delete(product);
+
+
+
+
+
+
+
+
+
+

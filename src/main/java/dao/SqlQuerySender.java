@@ -16,11 +16,7 @@ public class SqlQuerySender extends DAO {
 	}
 
 	@Override
-	protected void doSelect(Session session) {
-//		SQLQuery query = session.createSQLQuery("select p.* from product_m p");
-//		query.addEntity("p", ProductM.class);
-//		List<ProductM> products = query.list();
-		
+	protected void doSelect(Session session) {		
 		SQLQuery query = session.createSQLQuery(
 				"select {p.*}, {pc.*} from product_m p inner join product_category_m pc on p.product_category_id = pc.id");
 		query.addEntity("p", ProductM.class);
@@ -35,11 +31,6 @@ public class SqlQuerySender extends DAO {
 	}
 	
 	protected void doUpdate(Session session) {
-//		SQLQuery query = session.createSQLQuery("insert into product_category_m(id, title) values (2, 'Technical products')");
-//		query.executeUpdate();
-		
-//		SQLQuery query = session.createSQLQuery("insert into product_m(id,  title, product_category_id, price) values (2, 'Keyboard', 2, 500)");
-//		query.executeUpdate();
 		
 		SQLQuery query = session.createSQLQuery("insert into product_m(id, title, product_category_id, price) values (:id, :title, :product_category_id, :price)");
 		query.setParameter("id", 4);
@@ -50,3 +41,36 @@ public class SqlQuerySender extends DAO {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//SQLQuery query = session.createSQLQuery("select p.* from product_m p");
+//query.addEntity("p", ProductM.class);
+//List<ProductM> products = query.list();
+
+
+
+
+
+//SQLQuery query = session.createSQLQuery("insert into product_category_m(id, title) values (2, 'Technical products')");
+//query.executeUpdate();
+
+//SQLQuery query = session.createSQLQuery("insert into product_m(id,  title, product_category_id, price) values (2, 'Keyboard', 2, 500)");
+//query.executeUpdate();

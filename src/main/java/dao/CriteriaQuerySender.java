@@ -20,20 +20,6 @@ public class CriteriaQuerySender extends DAO {
 
 	@Override
 	protected void doSelect(Session session) {
-//		Criteria criteria = session.createCriteria(ProductM.class);
-//		Criteria criteria = session.createCriteria(ProductM.class, "p"); //alias
-
-//		criteria.add(Restrictions.eq("title", "Cheese"));
-//		criteria.add(Restrictions.eq("productCategory", new ProductCategoryM(2L)));
-//		criteria.add(Restrictions.between("price", new BigDecimal(520), new BigDecimal(20_000)));
-//		criteria.add(Restrictions.in("id", 2L, 3L));
-//		criteria.add(Restrictions.sqlRestriction("id > 2"));
-
-//		criteria.addOrder(Order.desc("id"));
-//		criteria.setFirstResult(1); // offset
-//		criteria.setMaxResults(2);  // limit
-//		criteria = criteria.setProjection(Projections.property("title"));
-
 		Criteria criteria = session.createCriteria(ProductCategoryM.class, "productCategory");
 		criteria.createCriteria("productCategory.products", "product");
 		criteria.add(Restrictions.eq("productCategory.title", "Technical products"));
@@ -55,3 +41,37 @@ public class CriteriaQuerySender extends DAO {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Criteria criteria = session.createCriteria(ProductM.class);
+//Criteria criteria = session.createCriteria(ProductM.class, "p"); //alias
+
+//criteria.add(Restrictions.eq("title", "Cheese"));
+//criteria.add(Restrictions.eq("productCategory", new ProductCategoryM(2L)));
+//criteria.add(Restrictions.between("price", new BigDecimal(520), new BigDecimal(20_000)));
+//criteria.add(Restrictions.in("id", 2L, 3L));
+//criteria.add(Restrictions.sqlRestriction("id > 2"));
+
+//criteria.addOrder(Order.desc("id"));
+//criteria.setFirstResult(1); // offset
+//criteria.setMaxResults(2);  // limit
+//criteria = criteria.setProjection(Projections.property("title"));

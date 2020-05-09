@@ -8,6 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotNull;
 
 import main.java.models.User;
 
@@ -21,6 +24,8 @@ public class OrderM extends Model {
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
 	
+	@Valid
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id", referencedColumnName = "id")
 	private ProductM product;
@@ -29,6 +34,7 @@ public class OrderM extends Model {
 	
 	private int count;
 	
+	@AssertTrue
 	private boolean status;
 
 	public OrderM() {

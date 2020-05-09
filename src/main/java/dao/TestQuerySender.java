@@ -12,11 +12,16 @@ public class TestQuerySender extends DAO {
 		UserM user2 = new UserM("Mary", 24);
 		session.save(user1);
 		session.save(user2);
+	}
+
+	@Override
+	protected void doSelect(Session session) {
 		
-//		ProductM product1 = new ProductM("Laptop", new ProductCategoryM("Technical products"), new BigDecimal(10_000));
-//		ProductM product2 = new ProductM("Cheese", new ProductCategoryM("Gastronomic products"), new BigDecimal(500));
-//		session.save(product1);
-//		session.save(product2);
+	}
+
+	@Override
+	protected void doUpdate(Session session) {
+		
 	}
 	
 }
